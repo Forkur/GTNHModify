@@ -27,7 +27,13 @@ public class Tenths extends Strategy {
     public void handler_GT_Recipe(GT_Recipe gtRecipe) {
         gtRecipe.mDuration = gtRecipe.mDuration / 10 == 0 ? 1 : gtRecipe.mDuration / 10;
     }
+    @Override
+    public void handler_GT_Recipe(GT_Recipe gtRecipe) {
+        if (gtRecipe.getRecipeCategory().unlocalizedName.equals("gg.recipe.naquadah_reactor")) {
+            gtRecipe.mDuration = gtRecipe.mDuration;
+        } else gtRecipe.mDuration / 10;
 
+    }
     @Override
     public void handler_GT_Recipe_AssemblyLine(GT_Recipe.GT_Recipe_AssemblyLine gtRecipe) {
         gtRecipe.mDuration = gtRecipe.mDuration / 10 == 0 ? 1 : gtRecipe.mDuration / 10;
